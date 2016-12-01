@@ -1,6 +1,4 @@
-# Swift
-
-## Swift 11 Tips
+# Swift 11 Tips
 
 学习了两周的 **Swift** 发现我这个小白鼠，跟大神的区别！
 
