@@ -120,21 +120,30 @@ class ViewController: UIViewController {
     	swift   #function
 
 ## 变量 var / 常量 let
-	1. 定义变量 var ,定义之后,能修改
-	常量 let ,定义之后,不能修改
-	2. 自动推导,变量 / 常量的类型会根据右侧的代码执行结果,推导对应的类型
-	热键 option + click,可查看定义的数据类型 
-	3. Swift 中对类型要求异常严格
-	** 任何不同类型的数据之间,不允许直接运算 **
-	不会做任何形式的隐含转换，所有的类型确定，都由程序员负责！
-	4. SWift 中,不存在基本数据类型,都是结构体
-	5. 关于 var 和 let 的选择
-	不可变的会更安全，开发的时候，建议都使用 `let`,在需要变化的时候，再使用 `var`
-	Variable 'x' was never mutated; consider changing to 'let' constant
-	变量 x 从来没有被修改,建议改成 `let`
-	6. 修改视图属性
-	let v = UIView() 
-	v.backgroundColor = UIColor.cyan # 仅仅修改的是 v 的属性，并没修改 v 的指针地址
+
+### 定义
+	1.定义变量 var ,定义之后,能修改
+	2.常量 let ,定义之后,不能修改
+
+### 关于 var 和 let 的选择	
+>+ 不可变的会更安全，开发的时候，建议都使用 `let`,在需要变化的时候，再使用 `var`
+>+ 变量 x 从来没有被修改,建议改成 `let` # Variable 'x' was never mutated; consider changing to 'let' constant
+
+### 热键
+自动推导,变量 / 常量的类型会根据右侧的代码执行结果,推导对应的类型
+
+热键 option + click,可查看定义的数据类型 
+
+### Swift 中对类型要求异常严格
+>+ **任何不同类型的数据之间,不允许直接运算**
+>+ 不会做任何形式的隐含转换，所有的类型确定，都由程序员负责！
+
+### SWift 中,不存在基本数据类型,都是结构体
+
+### 修改视图属性
+>+ let v = UIView() 
+>+ v.backgroundColor = UIColor.cyan # 仅仅修改的是 v 的属性，并没修改 v 的指针地址
+			
 示例代码：
 
 ```Swift
