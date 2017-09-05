@@ -239,7 +239,7 @@ default:
 
 #### for循环
 
-##### 去掉了C语言风格的循环( ..< 区间运算符,详见:02-预算符)
+##### 去掉了C语言风格的循环( ..< 区间运算符,详见:预算符)
 	for i in 0..<10{
 	    print(i)
 	}
@@ -342,5 +342,335 @@ let myRange1 = index..<str.index(str.startIndex, offsetBy: 5)
 str.substring(with: myRange1)
 ```
 
+### 元组
+>+ 元组的元素个数固定，不允许增加、删除
+>+ 支持嵌套
 
+	var stu = (404,"小白")
+	var msg = ("基本信息", ("李刚",34))
+	print(stu)
+	print(msg)
+	
+	var (a,b) = stu
+	print(a,b)
+	
+#### 如果仅需要元组中的个别的值，可以使用"_"的方式来处理不需要的值
+
+	let (c,_) = stu
+	print(c)
+	
+#### 通过序号获得元组的值
+
+	print("status is \(stu.0)")
+	
+#### 可以修改
+	
+	stu.0 = 500
+	let message = (status: 100, msg:"哈哈")
+	print("message is \(message.status)  and \(message.msg)")
+
+### 数组定义
+#### 方括号 [] 来创建数组
+	let array1 = ["zhangsan","lisi"]
+	
+	let array2 = [1,2,3,4,5]
+	
+	
+#### 声明空数组,（必须初始化）
+```swift
+var array3:[Int] // 定义一个数组（没有初始化）
+array3 = [Int]() //初始化
+let array4 = [String]()  // 等价上面两行代码
+
+let array5:[Any] = ["zhangsan","lisi",20]
+
+var arr3 = [Double](repeating: 0.0, count: 3) //[0.0, 0.0, 0.0]
+var arr4 = Array(repeating: 3.0, count: 3)  //[3.0, 3.0, 3.0]
+var arr: [String] = ["Alex", "Brian", "Dave"]
+print(arr.count)
+print(arr[0])
+```
+
+#### 数组遍历
+```swift
+for name in array1{
+    print(name)
+}
+
+for i in 0..<array2.count{
+    print(array2[i])
+}
+```
+##### 同时遍历下标和内容
+```swift
+for e in array2.enumerated(){
+    print(e)
+    print("元组 \(e.offset) \(e.element)")
+}
+```
+##### 反序遍历
+```swift
+for a in array2.reversed(){
+    print(a)
+}
+```
+
+#### 数组增删改
+```swift
+// 追加
+arr.append("ningcol")
+
+// 合并(类型必须一致)
+let arr1 = ["Evi","Tank"]
+arr += arr1
+
+// 修改
+arr[0] = "Tom"
+print(arr)
+
+// 删除
+arr.removeFirst()
+print(arr)
+
+arr.remove(at: 2)
+print(arr)
+
+// 删除全部并保留空间
+arr.removeAll(keepingCapacity: true)
+print(arr.capacity)  //数组容量
+```
+
+#### 容量
+
+```swift
+print("初始容量 \(array3.capacity)")
+for i in 0..<8{
+    array3.append(i)
+    print("\(array3)，容量：\(array3.capacity)")
+}
+```
+
+### 字典
+#### 字典定义
+```swift
+//方括号 [] 来创建字典
+let dict1 = ["name":"lisi","age":"18"]
+// 不同类型必须指明为 any
+var dict2:[String:Any] = ["name":"lisi","age":18]
+
+
+let array = [
+    ["name":"lisi","age":"18"],
+    ["name":"wangwu","age":8]
+]
+print(array)
+let array1:[[String:Any]] = [
+    ["name":"lisi","age":"18"],
+    ["name":"wangwu","age":8]
+]
+print(array1)
+
+print(dict2["age"])
+```
+
+#### 字典增删改
+```swift
+// 增加
+dict2["sex"] = "man"
+print(dict2)
+// 修改（通过key来取值，key不存在就是新增）
+dict2["name"] = "zhangsan"
+print(dict2)
+// 删除(直接给key进行删除)
+dict2.removeValue(forKey: "age")
+print(dict2)
+```
+
+#### 字典遍历
+```swift
+for e in dict2{
+    //e 为元组
+    print("字典遍历:\(e)  e.key:\(e.key)  value:\(e.value)")
+}
+// key value 可以随意更改
+for (key,value) in dict2{
+    //e 为元组
+    print("key:\(key), value:\(value)")
+}
+```
+
+#### 字典合并
+```swift
+
+var dict3:[String:Any] = ["name":"zhangsan","age":18,"sex":"man"]
+let dict4:[String:Any] = ["name":"ningcol","height":50]
+// 如果key存在修改  不存在会增加
+for e in dict4{
+    dict3[e.key] = dict4[e.key]
+}
+print("合并dict:" + String(format: "%@", dict3))
+```
+
+### 函数
+#### 格式: 函数名(形参列表) -> 返回值类型
+
+	func sum(x: Int ,y: Int) -> Int{
+	    return x + y
+	}
+	print(sum(x: 10, y: 20))
+
+#### 外部参数
+	1. 外部参数是在形参前加一个名字
+	2. 外部参赛不影响内部细节
+	3. 外部参数让调用更加直观
+
+	func sum(num x: Int ,num y: Int) -> Int{
+	    return x + y
+	}
+	print(sum(num: 30, num: 40))
+
+#### 外部参数使用 "_" 会忽略形参
+	
+	func sum(_ x: Int ,_ y: Int) -> Int{
+    return x + y
+	}
+	print(sum(40, 50))
+
+#### 默认值
+##### 不指定参数的值就为默认值
+
+```swift
+func sum1(x: Int = 1 ,y: Int = 2) -> Int{
+    return x + y
+}
+print(sum1())
+print(sum1(x: 10, y: 10))
+print(sum1(x: 20))
+print(sum1(y: 20))
+```
+
+#### 无返回值
+```swift
+// 1.直接省略
+func person(){
+    print("ningcol")
+}
+// 2.包含括号
+func person1() ->(){
+    print("ningcol")
+}
+// 3.Void
+func person2() ->Void{
+    print("ningcol")
+}
+
+print(person())
+print(person1())
+print(person2())
+```
+
+### 对象和类
+#### 创建一个类
+```swfit
+class Shape {
+    var numberOfSides = 0
+    // 定义 simpleDescription 无参方法,返回值为 String 类型
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides."
+    }
+}
+```
+
+#### 实例化
+	var shape = Shape()
+#### 赋值
+	shape.numberOfSides = 7
+#### 调用方法
+	var shapeDescription = shape.simpleDescription()
+#### 构造函数来初始化类实例
+```swift
+class NamedShape {
+    var numberOfSides: Int = 0
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides."
+    }
+}
+```
+
+#### 重写父类方法
+```swift
+class Square: NamedShape {
+    var sideLength: Double
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 4
+    }
+    func area() ->  Double {
+        return sideLength * sideLength
+    }
+    // 使用 override
+    override func simpleDescription() -> String {
+        return "A square with sides of length \(sideLength)."
+    } }
+let test = Square(sideLength: 5, name: "my test square")
+test.area()
+test.simpleDescription()
+```
+
+### 控件
+#### 创建一个 View
+	let v = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+	let u = UIView()
+#### [UIColor redColor]   类方法：直接点出来
+	v.backgroundColor = UIColor.red
+#### 创建一个按钮
+	let btn = UIButton(type: .contactAdd)
+#### 将 btn 添加到 View 上
+	btn.center = v.center
+	v.addSubview(btn)
+
+### 闭包
+#### 定义一个常量记录函数
+```swift
+func sum(x: Int,y: Int) -> Int{
+    return x + y
+}
+
+print(sum(x: 20, y: 10))
+
+let fu = sum
+print(fu(10, 10))
+```
+#### 最简单的闭包
+> demo 为没有参数,没有返回值的函数(可以省略参数、返回值、in)
+
+	let demo = {
+	    print("hello")
+	}
+	demo()
+
+#### 带参数的闭包
+	1. 参数,返回值,实现代码都是写在 {} 中
+	2. 必须以 "in" 关键字分隔定义和实现
+	3. 格式: 形参列表 -> 返回值类型 in 实现代码
+
+```swift
+// 无返回值,有参数
+let demo1 = { (x: Int) -> () in
+    print(x)
+}
+demo1(50)
+
+// 有返回值,有参数
+let demo2 = {
+    (x: Int) -> (Int) in
+    return 40 + x
+}
+print(demo2(40))
+```
 
