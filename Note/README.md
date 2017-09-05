@@ -128,16 +128,13 @@ class ViewController: UIViewController {
 		** 任何不同类型的数据之间,不允许直接运算 **
 		不会做任何形式的隐含转换，所有的类型确定，都由程序员负责！
 	4. SWift 中,不存在基本数据类型,都是结构体
-
->+ 关于 var 和 let 的选择
->+ 不可变的会更安全，开发的时候，建议都使用 `let`,在需要变化的时候，再使用 `var`
->+ Variable 'x' was never mutated; consider changing to 'let' constant
-    1. 变量 x 从来没有被修改,建议改成 `let`
-    2. var x = 10 let y = 10  print(x + y)
->+ 修改视图属性
-	1. let v = UIView()
-	2. v.backgroundColor = UIColor.cyan # 仅仅修改的是 v 的属性，并没修改 v 的指针地址
-
+	5. 关于 var 和 let 的选择
+		不可变的会更安全，开发的时候，建议都使用 `let`,在需要变化的时候，再使用 `var`
+		Variable 'x' was never mutated; consider changing to 'let' constant
+		变量 x 从来没有被修改,建议改成 `let`
+	6. 修改视图属性
+		let v = UIView() 
+		v.backgroundColor = UIColor.cyan # 仅仅修改的是 v 的属性，并没修改 v 的指针地址
 示例代码：
 
 ```Swift
