@@ -126,7 +126,7 @@ if allowedEntry || enteredDoorCode {
 ### 可选项
 	可选值:可以有值,可以为nil(用 ? 表示可选值)	
 #### URL 为可选项
-	let URL = NSURL(string: "http://www.baidu.com/")
+	let usr:NSURL = NSURL(string: "http://www.baidu.com/")
 
 #### str 为可选项
 	var str: String? = "ningcol"
