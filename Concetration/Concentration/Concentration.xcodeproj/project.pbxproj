@@ -12,6 +12,8 @@
 		CC297A6520205B86004F1172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC297A6320205B86004F1172 /* Main.storyboard */; };
 		CC297A6720205B86004F1172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC297A6620205B86004F1172 /* Assets.xcassets */; };
 		CC297A6A20205B86004F1172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC297A6820205B86004F1172 /* LaunchScreen.storyboard */; };
+		CC45441A20209F2000F7162E /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45441920209F2000F7162E /* Concentration.swift */; };
+		CC45441C2020A1B300F7162E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45441B2020A1B300F7162E /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		CC297A6620205B86004F1172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC297A6920205B86004F1172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC297A6B20205B86004F1172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC45441920209F2000F7162E /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		CC45441B2020A1B300F7162E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				CC297A6120205B86004F1172 /* ViewController.swift */,
 				CC297A6320205B86004F1172 /* Main.storyboard */,
+				CC45441920209F2000F7162E /* Concentration.swift */,
+				CC45441B2020A1B300F7162E /* Card.swift */,
 				CC297A7120205D45004F1172 /* Supporting Files */,
 				CC297A6B20205B86004F1172 /* Info.plist */,
 			);
@@ -146,6 +152,8 @@
 			files = (
 				CC297A6220205B86004F1172 /* ViewController.swift in Sources */,
 				CC297A6020205B86004F1172 /* AppDelegate.swift in Sources */,
+				CC45441A20209F2000F7162E /* Concentration.swift in Sources */,
+				CC45441C2020A1B300F7162E /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
